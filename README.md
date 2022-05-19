@@ -2,7 +2,7 @@
 gromcode-js-project
 
 LINK TO PAGE:
-https://mvprogramm.github.io/todo-list/
+https://mvprogramm.github.io/todo-list-new/
 
 HTML <br>
 CSS  <br>
