@@ -1,3 +1,5 @@
+import './list.scss';
+
 const sortTasks = (tasksList) => {
   const sortTasks = tasksList
     .map((task) => {
