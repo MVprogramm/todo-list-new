@@ -1,8 +1,8 @@
-import { renderTasks } from "./render.js";
-import { getTasksList, updateTask } from "./tasksGateway.js";
+import { renderTasks } from './render';
+import { getTasksList, updateTask } from './tasksGateway';
 
 const eventData = (event) => {
-  if (event.target.classList.contains("list__item_checkbox")) {
+  if (event.target.classList.contains('list__item_checkbox')) {
     return {
       id: event.target.dataset.id,
       text: event.target.dataset.text,
@@ -10,7 +10,7 @@ const eventData = (event) => {
     };
   }
 
-  if (event.target.classList.contains("list__item")) {
+  if (event.target.classList.contains('list__item')) {
     return {
       id: event.target.firstChild.dataset.id,
       text: event.target.firstChild.dataset.text,
@@ -18,16 +18,18 @@ const eventData = (event) => {
     };
   }
 
-  if (event.target.classList.contains("list__item_delete-btn")) {
-    console.log(event);
+  if (event.target.classList.contains('list__item_delete-btn')) {
     return {
       id: event.target.dataset.id,
     };
   }
+
+  return {};
 };
 
 export const onToggleTask = (event) => {
-  updateTask(eventData(event)).then(() => {
-    getTasksList().then((result) => renderTasks(result));
+  updateTask(eventData(event)).then(async () => {
+    const result = await getTasksList();
+    return renderTasks(result);
   });
 };

@@ -1,8 +1,8 @@
-import { renderTasks } from "./render.js";
-import { createTask, getTasksList } from "./tasksGateway.js";
+import { renderTasks } from './render';
+import { createTask, getTasksList } from './tasksGateway';
 
 export const onCreateTask = () => {
-  const input = document.querySelector(".task-input");
+  const input = document.querySelector('.task-input');
 
   if (!input.value) {
     return;
@@ -18,5 +18,5 @@ export const onCreateTask = () => {
     .then(() => getTasksList())
     .then((result) => renderTasks(result));
 
-  input.value = "";
+  input.value = '';
 };
